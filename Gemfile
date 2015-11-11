@@ -21,6 +21,7 @@ end
 group :development, :test do
   gem 'binding_of_caller'
   gem 'byebug'
+  gem 'database_cleaner', '~> 1.3.0'
   gem 'rspec-rails', '~> 3.0'
 end
 
