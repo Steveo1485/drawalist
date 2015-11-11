@@ -6,6 +6,8 @@ gem 'rails', '4.2.4'
 gem 'mysql2', '~> 0.3.18'
 
 gem 'coffee-rails', '~> 4.1.0'
+gem 'devise'
+gem 'figaro'
 gem 'haml'
 gem 'haml-rails'
 gem 'jbuilder', '~> 2.0'
@@ -37,5 +39,4 @@ end
 group :test do
   gem 'capybara'
   gem 'poltergeist'
-  gem 'rspec-instafail'
 end
