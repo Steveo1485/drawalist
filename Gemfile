@@ -21,12 +21,20 @@ end
 group :development, :test do
   gem 'binding_of_caller'
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.0'
 end
 
 group :development do
   gem 'better_errors'
   gem 'did_you_mean'
+  gem 'factory_girl'
+  gem 'faker'
   gem 'spring'
   gem 'web-console', '~> 2.0'
 end
 
+group :test do
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'rspec-instafail'
+end
