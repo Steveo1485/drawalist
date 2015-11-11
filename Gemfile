@@ -25,7 +25,8 @@ group :development, :test do
 end
 
 group :development do
-  gem "better_errors"
+  gem 'better_errors'
+  gem 'did_you_mean'
   gem 'spring'
   gem 'web-console', '~> 2.0'
 end
