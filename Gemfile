@@ -5,6 +5,7 @@ gem 'rails', '4.2.4'
 # Current mysql2 not compatible with Rails 4.2.4
 gem 'mysql2', '~> 0.3.18'
 
+gem 'bootstrap', '~> 4.0.0.alpha1'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 gem 'figaro'
