@@ -1,0 +1,7 @@
+%nav.navbar.navbar-default
+  = link_to('DrawAList', root_path, class: 'navbar-brand')
+  %ul.nav.navbar-nav.pull-right
+    - if current_user
+      %li.nav-item= link_to('Sign Out', destroy_user_session_path, class: 'nav-link')
+    - else
+      %li.nav-item= link_to('Sign In', new_user_session_path, class: 'nav-link')
