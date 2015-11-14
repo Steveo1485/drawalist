@@ -1,0 +1,26 @@
+@import 'colors';
+
+nav.main-nav {
+  background-color: $red;
+}
+
+.flash-message {
+  text-align: center;
+  padding: 0.5rem;
+  margin: 0;
+  border-radius: 0;
+
+  &.alert {
+    background-color: $light_red;
+    color: #fff;
+  }
+
+  &.notice {
+    background-color: $light_green;
+  }
+}
+
+#main-content {
+  margin: 1rem 0;
+}
+

@@ -8,11 +8,11 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+
   %body
-
     = render 'layouts/main_nav.html.haml'
-
-    .container-fluid
+    = render 'layouts/flash_messages.html.haml'
+    #main-content.container-fluid
       .row
         .col-xs-12
           = yield
