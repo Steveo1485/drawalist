@@ -1,0 +1,28 @@
+body.pages-home {
+  h1 {
+    color: $brand-primary;
+  }
+
+  .steps {
+    margin: 2em 0;
+
+    .step:not(:last-of-type) {
+      margin-bottom: 2em;
+    }
+
+    h3 {
+      color: $brand-secondary;
+      i {
+        margin-right: 0.25em;
+      }
+    }
+
+    p {
+      padding-right: 1em;
+      @media (min-width: 48em) {
+        padding-right: 5em;
+      }
+    }
+
+  }
+}
