@@ -1,5 +1,9 @@
 @import 'colors';
 
+html, body {
+  height: 100%;
+}
+
 nav.main-nav {
   background-color: $red;
 }
@@ -20,8 +24,18 @@ nav.main-nav {
   }
 }
 
-#main-content {
+.container {
   margin: 0 auto;
+}
+
+#main-content {
   margin-top: 2rem;
 }
 
+#footer {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-top: 1px solid $gray;
+  text-align: center;
+  font-size: 0.8em;
+}

@@ -12,7 +12,10 @@
   %body
     = render 'layouts/main_nav.html.haml'
     = render 'layouts/flash_messages.html.haml'
+
     #main-content.container
       .row
         .col-xs-12
           = yield
+
+    = render 'layouts/footer.html.haml'
