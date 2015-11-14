@@ -1,5 +1,5 @@
 .row
-  .col-xs-12.col-md-7
+  .col-xs-12.col-md-8
     %h1 Gift Exchange in 3 Steps:
 
     .steps
@@ -21,6 +21,11 @@
           Step 3: Draw!
         %p When your group is all set to go, we will randomly pair each user with another. Don't worry, you can still make additions to your pesonal wishlist and we'll even alert your match when you add new items.
 
-  .col-xs-12.col-md-5
-    %h3 Ready to go?
-    = link_to('Create a group', new_user_registration_path, class: 'btn btn-primary')
+  .col-xs-12.col-md-4
+    .auth-block
+      %h4 Ready to go?
+      = link_to('Sign Up', new_user_registration_path, class: 'btn btn-primary')
+
+    .auth-block
+      %h4 Already a member?
+      = render "devise/sessions/form", resource: User.new

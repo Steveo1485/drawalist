@@ -23,6 +23,21 @@ body.pages-home {
         padding-right: 5em;
       }
     }
-
   }
+
+  .auth-block {
+    &:not(:last-of-type) {
+      margin-bottom: 2em;
+    }
+
+    h4 {
+      color: $brand-secondary;
+    }
+
+    .btn {
+      display: block;
+      text-align: center;
+    }
+  }
+
 }
