@@ -27,14 +27,14 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'byebug'
   gem 'database_cleaner', '~> 1.3.0'
+  gem 'factory_girl_rails'
+  gem 'faker'
   gem 'rspec-rails', '~> 3.0'
 end
 
 group :development do
   gem 'better_errors'
   gem 'did_you_mean'
-  gem 'factory_girl'
-  gem 'faker'
   gem 'spring'
   gem 'web-console', '~> 2.0'
 end
