@@ -10,7 +10,7 @@ describe "The sign in process", :type => :feature do
     visit root_path
     fill_in 'user_email', with: @user.email
     fill_in 'user_password', with: @user.password
-    expect(current_path).to eq(dashboard_path)
+    expect(current_path).to eq(user_root_path)
   end
 
   it 'should display error messages on unsuccessful sign in' do
