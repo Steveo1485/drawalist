@@ -4,8 +4,16 @@
   = devise_error_messages!
 
   %fieldset.form-group
+    = f.label(:first_name)
+    = f.email_field(:first_name, autofocus: true, class: 'form-control')
+
+  %fieldset.form-group
+    = f.label(:last_name)
+    = f.email_field(:last_name, autofocus: true, class: 'form-control')
+
+  %fieldset.form-group
     = f.label(:email)
-    = f.email_field(:email, autofocus: true, class: 'form-control')
+    = f.email_field(:email, class: 'form-control')
 
   %fieldset.form-group
     = f.label(:password, raw("Password <span>(#{@minimum_password_length} characters minimum)</span>"))
