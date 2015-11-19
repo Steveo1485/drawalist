@@ -20,4 +20,8 @@ module IconHelper
     icon('tree', options)
   end
 
+  def facebook_icon(options = {})
+    icon('facebook', options)
+  end
+
 end

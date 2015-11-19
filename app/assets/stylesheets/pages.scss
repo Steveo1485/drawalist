@@ -37,6 +37,19 @@ body.pages-home {
     .btn {
       display: block;
       text-align: center;
+      margin-bottom: 1em;
+    }
+
+    .btn.facebook {
+      background-color: $facebook_blue;
+      border-color: $facebook_blue;
+      &:hover {
+        background-color: darken($facebook_blue, 10%);
+        border-color: darken($facebook_blue, 10%);
+      }
+      i {
+        margin-right: 0.25em;
+      }
     }
   }
 

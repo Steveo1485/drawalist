@@ -24,8 +24,8 @@
   .col-xs-12.col-md-4
     .auth-block
       %h4 Ready to go?
+      = link_to(raw("#{facebook_icon} Connect with Facebook"), user_omniauth_authorize_path(:facebook), class: 'btn btn-primary facebook')
       = link_to('Sign Up', new_user_registration_path, class: 'btn btn-primary')
 
-    .auth-block
-      %h4 Already a member?
+      %h4 Sign In
       = render "devise/sessions/form", resource: User.new
