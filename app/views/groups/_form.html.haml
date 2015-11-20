@@ -1,0 +1,7 @@
+= form_for group do |f|
+
+  %fieldset.form-group
+    = f.label(:name, 'Group name')
+    = f.text_field(:name, autofocus: true, class: 'form-control')
+
+  = f.submit('Create Group', data: {disable_with: 'Saving...'})
