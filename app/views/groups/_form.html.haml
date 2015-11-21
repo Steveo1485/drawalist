@@ -1,6 +1,6 @@
 = form_for group do |f|
 
-  = handle_errors(group)
+  - handle_errors(group)
 
   %fieldset.form-group
     = f.label(:name, 'Group name')
