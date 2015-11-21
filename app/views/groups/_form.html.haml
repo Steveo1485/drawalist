@@ -1,5 +1,7 @@
 = form_for group do |f|
 
+  = handle_errors(group)
+
   %fieldset.form-group
     = f.label(:name, 'Group name')
     = f.text_field(:name, autofocus: true, class: 'form-control')
