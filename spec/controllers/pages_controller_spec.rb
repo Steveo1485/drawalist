@@ -12,5 +12,12 @@ RSpec.describe PagesController, :type => :controller do
       get :home
       expect(response).to render_template(:home)
     end
+
+    it 'should redirect to user_root if user signed in' do
+      sign_in FactoryGirl.create(:user)
+      get :home
+      expect(response).to have_http_status(302)
+      expect(response).to redirect_to(user_root_path)
+    end
   end
 end
