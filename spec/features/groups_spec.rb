@@ -7,7 +7,7 @@ describe "Group", :type => :feature do
       @user = FactoryGirl.create(:user)
       @group = FactoryGirl.build(:group)
       log_in_user(@user)
-      click_link('Create New Group')
+      click_link('Create a Group')
     end
 
     it "should display group details after successful creation" do

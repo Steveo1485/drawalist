@@ -6,4 +6,5 @@
     = f.label(:name, 'Group name')
     = f.text_field(:name, autofocus: true, class: 'form-control')
 
-  = f.submit('Create Group', data: {disable_with: 'Saving...'})
+  = f.submit('Create Group', data: {disable_with: 'Saving...'}, class: 'btn btn-primary')
+  = link_to('Cancel', user_root_path, class: 'btn btn-danger')

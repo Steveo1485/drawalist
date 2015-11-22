@@ -1,0 +1,13 @@
+body.users-show {
+  .no-groups {
+    text-align: center;
+  }
+
+  .group-buttons {
+    margin-top: 1em;
+
+    .btn:first-of-type {
+      margin-right: 0.5em;
+    }
+  }
+}
