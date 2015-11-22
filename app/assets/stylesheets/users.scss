@@ -1,3 +1,5 @@
+@import 'colors';
+
 body.users-show {
   .no-groups {
     text-align: center;
@@ -8,6 +10,21 @@ body.users-show {
 
     .btn:first-of-type {
       margin-right: 0.5em;
+    }
+  }
+
+  .group {
+    h2 {
+      display: inline-block;
+    }
+
+    .group-admin-title {
+      color: $dark_gray;
+      font-size: 0.5em;
+    }
+
+    a.manage-group {
+      margin-left: 1em;
     }
   }
 }

@@ -3,11 +3,7 @@
 %h1 Your Groups
 
 - if @user.groups.any?
-  - @user.groups.each do |group|
-    .row
-      .sm-12-col.md-6.col
-
-      .sm-12.col.md-6.col
+  = render partial: 'groups/group', collection: @user.groups
 
 - else
   .no-groups
