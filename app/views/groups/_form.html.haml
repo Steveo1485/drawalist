@@ -1,10 +1,14 @@
-= form_for group do |f|
+= form_for group_form do |f|
 
-  - handle_errors(group)
+  - handle_errors(group_form)
 
   %fieldset.form-group
     = f.label(:name, 'Group name')
     = f.text_field(:name, autofocus: true, class: 'form-control')
+
+  %fieldset.form-group
+    = label_tag(:group_invitation_emails, raw('Invite by email <span>(one email per line)</span>'))
+    = text_area_tag('group[invitation_emails]', nil, class: 'form-control')
 
   = f.submit('Create Group', data: {disable_with: 'Saving...'}, class: 'btn btn-primary')
   = link_to('Cancel', user_root_path, class: 'btn btn-danger')

@@ -1,16 +1,15 @@
 class GroupsController < ApplicationController
 
   def new
-    @group = Group.new
-    authorize(@group)
+    @group_form = GroupForm.new(current_user)
+    authorize(@group_form.group)
   end
 
   def create
-    @group = Group.new(group_params)
-    @group.user_id = current_user.id
-    authorize(@group)
-    if @group.save
-      redirect_to @group, notice: 'Group successfully created!'
+    @group_form = GroupForm.new(current_user)
+    authorize(@group_form.group)
+    if @group_form.submit(group_params, params[:group][:invitation_emails])
+      redirect_to @group_form.group, notice: 'Group successfully created!'
     else
       render :new
     end

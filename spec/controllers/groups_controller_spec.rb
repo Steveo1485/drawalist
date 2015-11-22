@@ -52,6 +52,11 @@ RSpec.describe GroupsController, :type => :controller do
         post :create, group: @group.attributes
         expect(Group.last.admin_user).to eq(@user)
       end
+
+      it 'should create invitations when emails entered' do
+        group_params = @group.attributes.merge(invitation_emails: Faker::Internet.email)
+        expect{post :create, group: group_params}.to change{Invitation.count}.from(0).to(1)
+      end
     end
 
     context 'when not signed in' do
