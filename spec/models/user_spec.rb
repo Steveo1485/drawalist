@@ -14,7 +14,7 @@ RSpec.describe User, :type => :model do
     end
 
     it 'should have association to return groups where user is a member' do
-      expect(@user.groups).to eq([@new_membership.group])
+      expect(@user.groups.pluck(:id).sort).to eq([@new_membership.group.id, @admin_group.id].sort)
     end
   end
 

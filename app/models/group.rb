@@ -7,4 +7,13 @@ class Group < ActiveRecord::Base
 
   validates :user_id, numericality: true
   validates :name, presence: true
+
+  after_create :create_admin_membership!
+
+  private
+
+  def create_admin_membership!
+    Membership.create!(group: self, user: self.admin_user)
+  end
+
 end
