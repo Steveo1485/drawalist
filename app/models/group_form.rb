@@ -27,7 +27,7 @@ class GroupForm
       if valid?
         group.transaction do
           group.save!
-          Invitation.send_invites!(group, emails_for_invitations)
+          Invitation.create_invites!(group, emails_for_invitations)
         end
         return true
       else

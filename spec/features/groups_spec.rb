@@ -21,5 +21,17 @@ describe "Group", :type => :feature do
       click_button('Create Group')
       expect(page).to have_content("Name can't be blank")
     end
+
+    it 'should allow user to send invitations' do
+      email = Faker::Internet.email
+      email_two = Faker::Internet.email
+      fill_in('group_name', with: @group.name)
+      fill_in('group_invitation_emails', with: "#{email}\r\n#{email_two}")
+      click_button('Create Group')
+      expect(Invitation.first.email).to eq(email)
+      expect(Invitation.last.email).to eq(email_two)
+      expect(page).to have_content(email)
+      expect(page).to have_content(email_two)
+    end
   end
 end

@@ -9,13 +9,12 @@ class Invitation < ActiveRecord::Base
     where(is_member: false)
   end
 
-  def self.send_invites!(group, email_addresses)
+  def self.create_invites!(group, email_addresses)
     return true if email_addresses.blank?
-    email_addresses.match(/([^@\s]+@(?:[-a-z0-9]+\.)+[a-z]{2,})/) do |email|
+    email_addresses.scan(/([^@\s]+@(?:[-a-z0-9]+\.)+[a-z]{2,})/).flatten.each do |email|
       Invitation.create!(group: group, email: email)
     end
     return true
   end
 
 end
-
