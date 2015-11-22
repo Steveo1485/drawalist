@@ -32,7 +32,7 @@ RSpec.describe GroupsController, :type => :controller do
   describe 'POST #create' do
     before :each do
       @user = FactoryGirl.create(:user)
-      @group = FactoryGirl.build(:group, user: @user)
+      @group = FactoryGirl.build(:group, admin_user: @user)
     end
 
     context 'when signed in' do
@@ -50,7 +50,7 @@ RSpec.describe GroupsController, :type => :controller do
 
       it 'should create group for signed in user' do
         post :create, group: @group.attributes
-        expect(Group.last.user).to eq(@user)
+        expect(Group.last.admin_user).to eq(@user)
       end
     end
 
@@ -66,7 +66,7 @@ RSpec.describe GroupsController, :type => :controller do
     context 'when signed in' do
       before :each do
         @user = FactoryGirl.create(:user)
-        @group = FactoryGirl.create(:group, user: @user)
+        @group = FactoryGirl.create(:group, admin_user: @user)
         sign_in @user
       end
 
