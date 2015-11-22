@@ -8,6 +8,7 @@ class Group < ActiveRecord::Base
   validates :user_id, numericality: true
   validates :name, presence: true
   validates :name, uniqueness: { scope: :user_id, message: "already used" }
+
   after_create :create_admin_membership!
 
   private

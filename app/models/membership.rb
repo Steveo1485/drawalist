@@ -5,5 +5,7 @@ class Membership < ActiveRecord::Base
 
   validates :user_id, numericality: true
   validates :group_id, numericality: true
+  validates :user_id, uniqueness: { scope: :group_id, message: "is already a member of this group" }
+
 
 end
