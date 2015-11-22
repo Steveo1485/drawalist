@@ -27,4 +27,16 @@ describe "User dashboard", :type => :feature do
       expect(page).to have_content("Manage Group")
     end
   end
+
+  context 'when user has group memberships' do
+    before :each do
+      @group = FactoryGirl.create(:membership, user: @user).group
+      log_in_user(@user)
+    end
+
+    it 'should display group name with no admin designation' do
+      expect(page).to have_content(@group.name)
+      expect(page).to_not have_content('Administrator')
+    end
+  end
 end
