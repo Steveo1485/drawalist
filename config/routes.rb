@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   get '/dashboard' => 'users#show', as: :user_root
 
   resources :groups, only: [:new, :create, :show]
-
+  resources :memberships, only: [:new, :create]
 end
