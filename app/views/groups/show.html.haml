@@ -2,6 +2,8 @@
 
 %h1= @group.name
 
+= render 'groups/members', group: @group
+
 - if policy(@group).update?
   %h3 Invite New Users
   %div

@@ -1,0 +1,11 @@
+- group ||= @group
+
+%h2 Current Members
+
+%ul
+  - group.users.each do |user|
+    %li
+      - if policy(group).update?
+        = user.name
+      - else
+        = user.first_name

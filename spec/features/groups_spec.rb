@@ -39,25 +39,38 @@ describe "Group", :type => :feature do
     before :each do
       @admin = FactoryGirl.create(:user)
       @group = FactoryGirl.create(:group, admin_user: @admin)
-      @memberships = create_list(:membership, 3)
+      @memberships = create_list(:membership, 3, group: @group)
     end
 
     context 'as group admin' do
       before :each do
         log_in_user(@admin)
+        click_link('Group Details')
       end
 
       it 'should allow admin to view token to share' do
-        click_link('Group Details')
         expect(page).to have_content(@group.token)
+      end
+
+      it 'should show full member names' do
+        expect(page).to have_content(@memberships.last.user.first_name)
+        expect(page).to have_content(@memberships.last.user.last_name)
       end
     end
 
     context 'as group member' do
-      it 'should not display token to share' do
+      before :each do
         log_in_user(@memberships.first.user)
         click_link('Group Details')
+      end
+
+      it 'should not display token to share' do
         expect(page).to_not have_content(@group.token)
+      end
+
+      it 'should only show member first names' do
+        expect(page).to have_content(@memberships.last.user.first_name)
+        expect(page).to_not have_content(@memberships.last.user.last_name)
       end
     end
   end
