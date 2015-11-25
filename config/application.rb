@@ -34,5 +34,14 @@ module Drawalist
 
     # Mail setup for devise
     config.action_mailer.default_url_options = { host: ENV['mailer_host'] }
+    config.action_mailer.smtp_settings = {
+        address: ENV['smtp_address'],
+        authentication: :plain,
+        domain: ENV['smtp_domain'],
+        enable_starttls_auto: true,
+        password: ENV['mandroll_api_key'],
+        port: "587",
+        user_name: ENV['mandrill_username']
+    }
   end
 end
