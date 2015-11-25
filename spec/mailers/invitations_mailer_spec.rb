@@ -18,5 +18,13 @@ RSpec.describe InvitationsMailer, :type => :mailer do
     it "should have the expected subject" do
       expect(@mail.subject).to eq("You've been invited to join #{@group.name}")
     end
+
+    it 'should be sent to the intended address' do
+      expect(@mail.to).to eq([@email])
+    end
+
+    it 'should include correct body' do
+      expect(@mail.body).to have_content("#{@group.admin_user.first_name} has invited you to join #{@group.name} at DrawAList.com")
+    end
   end
 end
