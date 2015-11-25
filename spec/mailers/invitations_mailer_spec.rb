@@ -3,9 +3,7 @@ require "rails_helper"
 RSpec.describe InvitationsMailer, :type => :mailer do
 
   before :each do
-    ActionMailer::Base.delivery_method = :test
-    ActionMailer::Base.perform_deliveries = true
-    ActionMailer::Base.deliveries = []
+    set_up_mailer
   end
 
   describe "#invitation" do
