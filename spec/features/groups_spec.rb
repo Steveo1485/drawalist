@@ -33,6 +33,17 @@ describe "Group", :type => :feature do
       expect(page).to have_content(email)
       expect(page).to have_content(email_two)
     end
+
+    it 'should send invitation emails' do
+      set_up_mailer
+      expect(ActionMailer::Base.deliveries.count).to eq(0)
+      email = Faker::Internet.email
+      fill_in('group_name', with: @group.name)
+      fill_in('group_invitation_emails', with: email)
+      click_button('Create Group')
+      expect(ActionMailer::Base.deliveries.count).to eq(1)
+      expect(ActionMailer::Base.deliveries.last.to).to eq([email])
+    end
   end
 
   context 'details' do
