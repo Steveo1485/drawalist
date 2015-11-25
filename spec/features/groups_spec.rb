@@ -34,4 +34,31 @@ describe "Group", :type => :feature do
       expect(page).to have_content(email_two)
     end
   end
+
+  context 'details' do
+    before :each do
+      @admin = FactoryGirl.create(:user)
+      @group = FactoryGirl.create(:group, admin_user: @admin)
+      @memberships = create_list(:membership, 3)
+    end
+
+    context 'as group admin' do
+      before :each do
+        log_in_user(@admin)
+      end
+
+      it 'should allow admin to view token to share' do
+        click_link('Group Details')
+        expect(page).to have_content(@group.token)
+      end
+    end
+
+    context 'as group member' do
+      it 'should not display token to share' do
+        log_in_user(@memberships.first.user)
+        click_link('Group Details')
+        expect(page).to_not have_content(@group.token)
+      end
+    end
+  end
 end

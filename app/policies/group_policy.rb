@@ -9,6 +9,10 @@ class GroupPolicy < ApplicationPolicy
   end
 
   def show?
+    @record.users.include?(@user)
+  end
+
+  def update?
     @user.id == @record.user_id
   end
 

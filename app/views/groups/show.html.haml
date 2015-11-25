@@ -2,9 +2,10 @@
 
 %h1= @group.name
 
-- if @group.invitations.open.any?
-  %h2 Pending Invitations
+- if policy(@group).update?
+  %h3 Invite New Users
+  %div
+    Share the following token to allow other users to join your group:
+    .token= @group.token
 
-  %ul
-    - @group.invitations.open.each do |invitation|
-      %li= invitation.email
+  = render 'groups/invitations', group: @group

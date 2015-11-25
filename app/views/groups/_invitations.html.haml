@@ -1,0 +1,8 @@
+- group ||= @group
+
+- if group.invitations.open.any?
+  %h2 Pending Invitations
+
+  %ul
+    - group.invitations.open.each do |invitation|
+      %li= invitation.email

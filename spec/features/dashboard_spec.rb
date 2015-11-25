@@ -23,8 +23,8 @@ describe "User dashboard", :type => :feature do
       expect(page).to have_content("#{@group.name} (Administrator)")
     end
 
-    it 'should display link to manage an admin group' do
-      expect(page).to have_content("Manage Group")
+    it 'should display link for group details' do
+      expect(page).to have_content("Group Details")
     end
   end
 
