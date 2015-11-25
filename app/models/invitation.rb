@@ -5,6 +5,8 @@ class Invitation < ActiveRecord::Base
   validates :email, presence: true
   validates :email, uniqueness: { scope: :group_id, message: "has already been invited" }
 
+  after_create :send_invitation_email
+
   def self.open
     where(is_member: false)
   end
@@ -15,6 +17,12 @@ class Invitation < ActiveRecord::Base
       Invitation.create!(group: group, email: email)
     end
     return true
+  end
+
+  private
+
+  def send_invitation_email
+    InvitationsMailer.invitation(email, group).deliver_later
   end
 
 end
