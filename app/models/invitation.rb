@@ -7,10 +7,6 @@ class Invitation < ActiveRecord::Base
 
   after_create :send_invitation_email
 
-  def self.open
-    where(is_member: false)
-  end
-
   def self.create_invites!(group, email_addresses)
     return true if email_addresses.blank?
     email_addresses.scan(/([^@\s]+@(?:[-a-z0-9]+\.)+[a-z]{2,})/).flatten.each do |email|
