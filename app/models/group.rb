@@ -6,6 +6,7 @@ class Group < ActiveRecord::Base
   has_many :invitations, dependent: :destroy
   has_many :memberships, dependent: :destroy
   has_many :users, through: :memberships
+  has_many :lists, dependent: :destroy
 
   validates :user_id, numericality: true
   validates :name, presence: true
