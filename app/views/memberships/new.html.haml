@@ -1,12 +1,16 @@
 - title('Join Group')
 
 = form_for @membership do |f|
-
   - handle_errors(@membership)
 
-  %fieldset.form-group
-    = label_tag('membership[group_token]', 'Please enter group token')
-    = text_field_tag('membership[group_token]', nil, autofocus: true, class: 'form-control')
+  - if @membership.group
+    = hidden_field_tag('membership[group_token]', @membership.group.token)
+    %div= "Please confirm you wish to join: #{@membership.group.name}"
+
+  - else
+    %fieldset.form-group
+      = label_tag('membership[group_token]', 'Please enter group token')
+      = text_field_tag('membership[group_token]', nil, autofocus: true, class: 'form-control')
 
   = f.submit('Join Group', class: 'btn btn-primary', data: {disable_with: 'Joining...'})
   = link_to('Cancel', user_root_path, class: 'btn btn-danger')

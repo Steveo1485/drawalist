@@ -5,7 +5,11 @@ class UsersController < ApplicationController
     @user = User.new
     authorize(@user)
     redirect_to root_path and return unless params[:token].present?
-    redirect_to new_membership_path(token: params[:token]) and return if current_user
+    if current_user
+      redirect_to new_membership_path(token: params[:token])
+    else
+      session[:group_token] = params[:token]
+    end
   end
 
   def show
