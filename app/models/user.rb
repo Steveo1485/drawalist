@@ -26,4 +26,12 @@ class User < ActiveRecord::Base
     [first_name, last_name].join(' ')
   end
 
+  def list_for_group(group)
+    lists.find_by(group_id: group.id)
+  end
+
+  def paired_list_for_group(group)
+    group.lists.find_by(paired_user_id: self.id)
+  end
+
 end

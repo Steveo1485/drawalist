@@ -1,0 +1,20 @@
+.list{data: {group_id: list.group_id}}
+
+  %h2= "#{list.user.first_name}'s List"
+
+  %ul
+    - list.list_items.each do |list_item|
+      %li= list_item.name
+
+  = form_for ListItem.new(list: list), class: 'add-item', data: {group_id: list.group_id} do |f|
+    = f.hidden_field(:list_id)
+
+    %fieldset.form-group
+      = f.label(:name)
+      = f.text_field(:name, class: 'form-control')
+
+    %fieldset.form-group
+      = f.label(:url, 'Link to item')
+      = f.text_field(:url, class: 'form-control')
+
+    = f.submit('Add Item', class: 'btn btn-primary')

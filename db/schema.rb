@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126060630) do
+ActiveRecord::Schema.define(version: 20151126063257) do
 
   create_table "groups", force: :cascade do |t|
     t.integer  "user_id",    limit: 4,   null: false
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 20151126060630) do
   add_index "invitations", ["email"], name: "index_invitations_on_email", using: :btree
   add_index "invitations", ["group_id"], name: "index_invitations_on_group_id", using: :btree
   add_index "invitations", ["group_id"], name: "index_invitations_on_group_id_and_is_member", using: :btree
+
+  create_table "list_items", force: :cascade do |t|
+    t.integer  "list_id",    limit: 4,   null: false
+    t.string   "name",       limit: 255, null: false
+    t.string   "url",        limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "list_items", ["list_id"], name: "index_list_items_on_list_id", using: :btree
 
   create_table "lists", force: :cascade do |t|
     t.integer  "user_id",        limit: 4, null: false
