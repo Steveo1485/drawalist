@@ -32,8 +32,6 @@ describe "Group", :type => :feature do
       click_button('Create Group')
       expect(Invitation.first.email).to eq(email)
       expect(Invitation.last.email).to eq(email_two)
-      expect(page).to have_content(email)
-      expect(page).to have_content(email_two)
       expect(ActionMailer::Base.deliveries.count).to eq(2)
       expect(ActionMailer::Base.deliveries.first.to).to eq([email])
     end
