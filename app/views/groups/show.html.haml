@@ -6,6 +6,11 @@
 
 - if policy(@group).update?
   %h3 Invite New Users
+
+  %div
+    Send new invitations
+    = render 'invitations/form', invitation: Invitation.new(group: @group)
+
   %div
     Share the following token to allow other users to join your group:
     .token= @group.token

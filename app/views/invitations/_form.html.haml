@@ -1,0 +1,9 @@
+= form_for invitation do |f|
+  - handle_errors(invitation)
+  = f.hidden_field(:group_id)
+
+  %fieldset.form-group
+    = f.label(:email)
+    = f.email_field(:email, autofocus: true, class: 'form-control')
+
+  = f.submit('Send Invitation', class: 'btn btn-primary')
