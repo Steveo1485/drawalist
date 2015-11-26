@@ -18,7 +18,7 @@ class Invitation < ActiveRecord::Base
   private
 
   def send_invitation_email
-    InvitationsMailer.invitation(email, group).deliver_later
+    InvitationsMailer.invitation(self).deliver_later
   end
 
 end
