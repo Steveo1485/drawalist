@@ -5,11 +5,11 @@
 
   %fieldset.form-group
     = f.label(:first_name)
-    = f.email_field(:first_name, autofocus: true, class: 'form-control')
+    = f.text_field(:first_name, autofocus: true, class: 'form-control')
 
   %fieldset.form-group
     = f.label(:last_name)
-    = f.email_field(:last_name, autofocus: true, class: 'form-control')
+    = f.text_field(:last_name, class: 'form-control')
 
   %fieldset.form-group
     = f.label(:email)
