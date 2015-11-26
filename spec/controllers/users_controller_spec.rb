@@ -30,4 +30,26 @@ RSpec.describe UsersController, :type => :controller do
       end
     end
   end
+
+  describe "GET #new" do
+    before :each do
+      @group = FactoryGirl.create(:group)
+    end
+
+    it 'should redirect to root_path if no group token param' do
+      get :new
+      expect(response).to redirect_to(root_path)
+    end
+
+    it 'should redirect to membership#new if user is signed in' do
+      sign_in FactoryGirl.create(:user)
+      get :new, token: @group.token
+      expect(response).to redirect_to(new_membership_path(token: @group.token))
+    end
+
+    it 'should render new template if not signed in and group token param present' do
+      get :new, token: @group.token
+      expect(response).to render_template(:new)
+    end
+  end
 end
