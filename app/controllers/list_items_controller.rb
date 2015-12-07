@@ -12,6 +12,16 @@ class ListItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @list_item = ListItem.find(params[:id])
+    authorize(@list_item)
+    if @list_item.destroy
+      redirect_to user_root_path, notice: 'Item removed from list.'
+    else
+      redirect_to user_root_path, alert: 'Something went wrong. Please try again.'
+    end
+  end
+
   private
 
   def list_item_params
