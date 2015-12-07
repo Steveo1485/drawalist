@@ -4,7 +4,9 @@
 
   %ul
     - list.list_items.each do |list_item|
-      %li= list_item.name
+      %li{data: {list_item: list_item.id}}
+        = list_item.name
+        = link_to('Remove from list', list_item, method: :delete)
 
   = form_for ListItem.new(list: list), class: 'add-item', data: {group_id: list.group_id} do |f|
     = f.hidden_field(:list_id)
